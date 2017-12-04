@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.Target;
 import com.line.combinehead.combinehead.CombineHeadUtil;
 
 import java.util.ArrayList;
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 loadBitmap(new Observer() {
                     @Override
                     public void update(Observable o, Object arg) {
-                        Bitmap head = CombineHeadUtil.getConbineHead(bitmapList, imageSize, 10, Color.LTGRAY);
+                        Bitmap head = CombineHeadUtil.getCombinedHead(bitmapList, imageSize, 10, Color.LTGRAY);
                         imageView.setImageBitmap(head);
                     }
                 });
@@ -60,17 +62,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadBitmap(final Observer observer) {
-        Glide.with(this).load(urls.poll()).asBitmap().override(100, 100).into(new SimpleTarget<Bitmap>() {
+        Glide.with(this).load(urls.poll()).asBitmap().override(100, 100).listener(new RequestListener<String, Bitmap>() {
             @Override
-            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+            public boolean onException(Exception e, String model, Target<Bitmap> target, boolean isFirstResource) {
+                return true;
+            }
+
+            @Override
+            public boolean onResourceReady(Bitmap resource, String model, Target<Bitmap> target, boolean isFromMemoryCache, boolean isFirstResource) {
                 bitmapList.add(resource);
                 if(urls.size() > 0){
                     loadBitmap(observer);
                 } else {
                     observer.update(null, null);
                 }
+                return false;
+            }
+        }).into(new SimpleTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+//                bitmapList.add(resource);
+//                if(urls.size() > 0){
+//                    loadBitmap(observer);
+//                } else {
+//                    observer.update(null, null);
+//                }
             }
         });
-
     }
 }

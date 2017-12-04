@@ -26,7 +26,7 @@ public class CombineHeadUtil {
      * @param bgColor   背景色
      * @return
      */
-    public static Bitmap getConbineHead(List<Bitmap> headBitmaps, int imageSize, int spaceing, @ColorInt int bgColor){
+    public static Bitmap getCombinedHead(List<Bitmap> headBitmaps, int imageSize, int spaceing, @ColorInt int bgColor){
         if(headBitmaps == null || headBitmaps.size() == 0)  return null;
         int count = Math.min(headBitmaps.size(), 9);
         int itemwidth = getItemWidth(count, imageSize, spaceing);
