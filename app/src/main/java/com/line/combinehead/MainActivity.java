@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -23,6 +25,8 @@ import java.util.Queue;
 public class MainActivity extends AppCompatActivity {
 
     ImageView imageView;
+    Button btnSwitch;
+    int count = 9;
     static Queue<String> urls = new LinkedList<>();
     static {
         urls.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512702265&di=37b926d77df562f97e26f1598a6e0d92&imgtype=jpg&er=1&src=http%3A%2F%2Fpic27.photophoto.cn%2F20130601%2F0036036307762415_b.jpg");
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = findViewById(R.id.image);
+        btnSwitch = findViewById(R.id.btn_switch);
         bitmapList = new ArrayList<>();
         imageView.post(new Runnable() {
             @Override
@@ -53,12 +58,25 @@ public class MainActivity extends AppCompatActivity {
                     public void update(Observable o, Object arg) {
                         Bitmap head = CombineHeadUtil.getCombinedHead(bitmapList, imageSize, 10, Color.LTGRAY);
                         imageView.setImageBitmap(head);
+                        btnSwitch.setVisibility(View.VISIBLE);
                     }
                 });
             }
         });
-
-
+        btnSwitch.setText(String.valueOf(count));
+        btnSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count = (count + 1) % 10;
+                List<Bitmap> bitmaps = new ArrayList<>();
+                for (int i = 0; i < count; i++) {
+                    bitmaps.add(bitmapList.get(i));
+                }
+                Bitmap head = CombineHeadUtil.getCombinedHead(bitmaps, imageView.getWidth(), 10, Color.LTGRAY);
+                imageView.setImageBitmap(head);
+                btnSwitch.setText(String.valueOf(count));
+            }
+        });
     }
 
     private void loadBitmap(final Observer observer) {
