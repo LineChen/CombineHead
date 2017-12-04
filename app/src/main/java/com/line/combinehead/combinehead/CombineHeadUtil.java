@@ -70,7 +70,7 @@ public class CombineHeadUtil {
                 break;
             case 2:
                 leftTop.left = index % 2 * itemWidth + spaceing * (index + 1);
-                leftTop.top = spaceing;
+                leftTop.top = (imageSize - itemWidth) / 2 + index / 2 * itemWidth;
                 break;
             case 3:
                 if(index == 0){
