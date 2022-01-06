@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CombineHead.iml" filepath="$PROJECT_DIR$/CombineHead.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CombineHead.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CombineHead.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/studyApp.CombineHead.iml" filepath="$PROJECT_DIR$/.idea/modules/studyApp.CombineHead.iml" />
     </modules>
   </component>
 </project>

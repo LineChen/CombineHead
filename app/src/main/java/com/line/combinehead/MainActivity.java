@@ -29,15 +29,16 @@ public class MainActivity extends AppCompatActivity {
     int count = 9;
     static Queue<String> urls = new LinkedList<>();
     static {
-        urls.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512702265&di=37b926d77df562f97e26f1598a6e0d92&imgtype=jpg&er=1&src=http%3A%2F%2Fpic27.photophoto.cn%2F20130601%2F0036036307762415_b.jpg");
-        urls.add("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=272162387,1882373772&fm=27&gp=0.jpg");
-        urls.add("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1841735587,1754178892&fm=27&gp=0.jpg");
-        urls.add("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4077282133,9308138&fm=27&gp=0.jpg");
-        urls.add("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3141321719,4227905030&fm=27&gp=0.jpg");
-        urls.add("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3265039697,1790980665&fm=27&gp=0.jpg");
-        urls.add("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4042920819,4259410653&fm=27&gp=0.jpg");
-        urls.add("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4249499471,3103145698&fm=27&gp=0.jpg");
-        urls.add("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2846910142,166539610&fm=27&gp=0.jpg");
+        urls.add("https://img2.baidu.com/it/u=1495842112,3628342104&fm=26&fmt=auto");
+        urls.add("https://img2.baidu.com/it/u=426967422,3059596943&fm=26&fmt=auto");
+        urls.add("https://img2.baidu.com/it/u=426967422,3059596943&fm=26&fmt=auto");
+        urls.add("https://img2.baidu.com/it/u=426967422,3059596943&fm=26&fmt=auto");
+        urls.add("https://img2.baidu.com/it/u=426967422,3059596943&fm=26&fmt=auto");
+        urls.add("https://img2.baidu.com/it/u=426967422,3059596943&fm=26&fmt=auto");
+        urls.add("https://img2.baidu.com/it/u=426967422,3059596943&fm=26&fmt=auto");
+        urls.add("https://img2.baidu.com/it/u=426967422,3059596943&fm=26&fmt=auto");
+        urls.add("https://img2.baidu.com/it/u=426967422,3059596943&fm=26&fmt=auto");
+        urls.add("https://img2.baidu.com/it/u=426967422,3059596943&fm=26&fmt=auto");
     }
 
     private List<Bitmap> bitmapList;
